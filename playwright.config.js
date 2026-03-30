@@ -1,33 +1,34 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
-import { trace } from 'console';
+import { defineConfig } from '@playwright/test';
 
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-const config = ({
-testDir: './', // root folder
+export default defineConfig({
+  testDir: './',
   timeout: 60 * 1000,
+
   expect: {
-   timeout: 5000,
+    timeout: 5000,
   },
+
   reporter: 'html',
-    use: {
-    
-    browserName: "chromium",
-    headless : false,
-    screenshot : "on",
-    trace: "on",
 
-
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    
+  use: {
+    headless: false,
+    screenshot: 'off',
+    trace: 'on',
   },
 
-  
-
+  projects: [
+    {
+      name: 'Chromium',
+      use: { browserName: 'chromium' },
+    },
+    {
+      name: 'Firefox',
+      use: { browserName: 'firefox' },
+    },
+    {
+      name: 'WebKit',
+      use: { browserName: 'webkit' },
+    },
+  ],
 });
-module.exports = config
-
