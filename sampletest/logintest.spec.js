@@ -2,7 +2,9 @@ const { test, expect } = require('@playwright/test');
 
 // Reusable function for error validation
 async function validateError(page) {
-  await expect(page.locator('text=Invalid')).toBeVisible();
+  await page.waitForLoadState('networkidle');
+  await expect(page).toHaveURL(/index\.php/);
+  await expect(page.locator('#login_btn')).toBeVisible();
 }
 
 test('Login test', async ({ page }) => {
@@ -16,46 +18,46 @@ test('Login test', async ({ page }) => {
 
 // Negative Scenarios
 
-// test('Invalid Password', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.fill('#username', 'parthi4@gmail.com');
-//   await page.fill('#password', '123');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Invalid Password', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.fill('#username', 'parthi4@gmail.com');
+  await page.fill('#password', '123');
+  await page.click('#login_btn');
+  await validateError(page);
+});
 
-// test('Invalid Username', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.fill('#username', 'wrong@mail.com');
-//   await page.fill('#password', 'Parthi@12');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Invalid Username', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.fill('#username', 'wrong@mail.com');
+  await page.fill('#password', 'Parthi@12');
+  await page.click('#login_btn');
+  await validateError(page);
+});
 
-// test('Empty Username', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.fill('#password', 'Parthi@12');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Empty Username', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.fill('#password', 'Parthi@12');
+  await page.click('#login_btn');
+  await validateError(page);
+});
 
-// test('Empty Password', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.fill('#username', 'parthi4@gmail.com');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Empty Password', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.fill('#username', 'parthi4@gmail.com');
+  await page.click('#login_btn');
+  await validateError(page);
+});
 
-// test('Both Fields Empty', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Both Fields Empty', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.click('#login_btn');
+  await validateError(page);
+});
 
-// test('Password Case Sensitivity Check', async ({ page }) => {
-//   await page.goto('https://niglabs.com/index.php');
-//   await page.fill('#username', 'parthi4@gmail.com');
-//   await page.fill('#password', 'PARTHI@12');
-//   await page.click('#login_btn');
-//   await validateError(page);
-// });
+test('Password Case Sensitivity Check', async ({ page }) => {
+  await page.goto('https://niglabs.com/index.php');
+  await page.fill('#username', 'parthi4@gmail.com');
+  await page.fill('#password', 'PARTHI@12');
+  await page.click('#login_btn');
+  await validateError(page);
+});
