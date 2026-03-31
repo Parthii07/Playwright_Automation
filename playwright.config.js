@@ -12,7 +12,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
-    headless: false,
+    headless: true,
     screenshot: 'off',
     trace: 'on',
   },
