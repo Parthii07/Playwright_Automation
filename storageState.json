@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "PHPSESSID",
+      "value": "e3t9li7nlb7g1gdhigs2j0cd0g",
+      "domain": "niglabs.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.1006436715.1776422368",
+      "domain": ".niglabs.com",
+      "path": "/",
+      "expires": 1810982941.269202,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_P32D9FSNC7",
+      "value": "GS2.1.s1776422368$o1$g1$t1776422943$j58$l0$h0",
+      "domain": ".niglabs.com",
+      "path": "/",
+      "expires": 1810982943.141547,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__session:0.1594866198561431:",
+      "value": "https:",
+      "domain": "niglabs.com",
+      "path": "/",
+      "expires": 1776423066,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

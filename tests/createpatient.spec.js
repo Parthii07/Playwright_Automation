@@ -3,11 +3,9 @@ import { login } from '../utils/login';
 
 test('Create Patient', async ({ page }) => {
 
-  await login(page);
+  
 
-await expect(page).toHaveURL('https://niglabs.com/users/patient.php');
-
-
+await page.goto('https://niglabs.com/users/patient.php');
 
   await page.fill('#patientName', 'parthi');
   await page.fill('#mobileNo','7904223568');

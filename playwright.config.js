@@ -2,7 +2,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './',
+  testDir: './tests',
   timeout: 60 * 1000,
 
   expect: {
@@ -13,6 +13,7 @@ export default defineConfig({
 
   use: {
     headless: true,
+    storageState: 'storageState.json',
     screenshot: 'off',
     trace: 'on',
   },
